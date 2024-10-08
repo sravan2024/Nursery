@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+<body>
+    <h1>Contact Form</h1>
+    <form onsubmit="validateForm(event)">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="age">Age</label> <br>
+        <input type="number" id="age" name="age"><br><br>
+        <label for="message">Message</label><br>
+        <input type="text" id="message" name="message"><br><br>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+    <div id="submission"></div>
+    <script>
+        function validateForm(event){
+            event.preventDefault();
+            // VAR CONST LET
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const age = document.getElementById("age").value;
+            const submission = document.getElementById("submission");
+            const message = document.getElementById("message").value;
+
+            if(name === ""){
+                alert("Please enter your name");
+                return false
+            }
+            if(email === ""){
+                alert("Please enter your email");
+                return false
+            }
+            if(age === ""){
+                alert("Please enter your age");
+                return false
+            }
+             if(message === ""){
+                alert("Its better to add a message");
+                return false
+            }
+            if(age <= 15){
+                alert("You are too young to submit");
+                return false;
+            }
+            //alert('form submitted');
+            submission.innerHTML="<h1> Form Submission Successful </h1>"
+            return true;
+        }
+    </script>
+</body>
+</html>
